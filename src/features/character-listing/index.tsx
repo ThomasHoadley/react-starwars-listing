@@ -13,7 +13,7 @@ function CharactersListing() {
     characterApiData &&
     characterApiData.map((character) => pruneCharacterData(character));
 
-  if (isCharacterApiLoading) return <P>Loading...</P>; // todo improve loading spinner
+  if (isCharacterApiLoading) return <P>Loading...</P>; // todo improve user messaging
   if (isCharacterApiError) return <P>There has been an error</P>;
   return (
     <>

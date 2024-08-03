@@ -3,14 +3,18 @@ import { P } from "../../../components/atoms/typography";
 import useGetFilms from "../hooks/use-get-films";
 
 function Films({ films }: { films: CharacterDataPruned["films"] }) {
-  const data = useGetFilms(films);
+  const filmsData = useGetFilms(films);
+  if (!filmsData) <></>;
 
+  // todo - add types for the film endpoint
   return (
     <>
       <P>Films</P>
       <ul className="list-disc list-inside">
-        {data.map((item) => {
-          return <li key={item.data.title}>{item.data.title}</li>;
+        {filmsData.map((item) => {
+          if (item && item.data && item.data.title) {
+            return <li key={item.data.title}>{item.data.title}</li>;
+          }
         })}
       </ul>
     </>

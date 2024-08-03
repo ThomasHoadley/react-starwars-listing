@@ -4,12 +4,15 @@ import { setupServer } from "msw/node";
 import { afterAll, afterEach, beforeAll } from "vitest";
 import db from "./db.json";
 
-const properties = db.people;
+const people = db.people;
 
 export const restHandlers = [
   // provide the property data for the test environment
   http.get("/people", () => {
-    return HttpResponse.json(properties);
+    return HttpResponse.json(people);
+  }),
+  http.get("/people/1", () => {
+    return HttpResponse.json(people[1]);
   }),
 ];
 

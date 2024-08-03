@@ -29,9 +29,7 @@ function CharacterCard({
         <P>Hair color: {hair_color}</P>
         <P>Height: {height}cm</P>
 
-        <P>
-          <Films films={films} />
-        </P>
+        <Films films={films} />
       </CardContent>
     </Card>
   );

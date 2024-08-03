@@ -8,9 +8,9 @@ function Character() {
   const { id } = useParams();
   if (!id) return;
 
-  const { data } = useGetSingleCharacter(id);
-  if (!data) return <P>Please enter a valid character URL</P>;
-  const prunedData = pruneCharacterData(data);
+  const { data: singleCharacterData } = useGetSingleCharacter(id);
+  if (!singleCharacterData) return <P>Please enter a valid character URL</P>;
+  const prunedData = pruneCharacterData(singleCharacterData);
 
   return (
     <div className="mx-auto max-w-full">
