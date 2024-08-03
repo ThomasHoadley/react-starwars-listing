@@ -10,7 +10,7 @@ export const serializeQueryParams = (args: Record<string, any>) => {
     .join("&");
 };
 
-export async function apiRequest(endpoint: string, args: ApiArgs) {
+export async function apiRequest(endpoint: string, args: ApiArgs = {}) {
   const urlParams = serializeQueryParams({
     ...(args && args),
   });

@@ -36,5 +36,7 @@ Below is an overview of the projects folder strucutre and it's usage. It is an o
 - To view the built project, I would reccomened running `pnpm build` to build the folder then `cd dist`, and then running `npx http-server`. Note this will require npx to be installed.
 - Layouts are added to page at the routes level here `src/pages/routes.tsx`
 
-# General work notes
+# improvements
+
+- Use the name for a better character slug
 

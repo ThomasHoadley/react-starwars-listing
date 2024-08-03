@@ -1,17 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
-import { listCharacters } from "../../../api/characters/characters-listing.api";
+import { getCharacters } from "../../../api/characters/characters-listing.api";
 import { ApiArgs, CharactersApiResponse } from "../../../api/types";
 
-function useGetCharacters({ format, page, search }: ApiArgs = {}) {
+function useGetCharacters({ _page, _per_page }: ApiArgs = {}) {
   const argsObject = {
-    ...(search && {
-      search,
+    ...(_page && {
+      _page,
     }),
-    ...(page && {
-      page,
-    }),
-    ...(format && {
-      format,
+    ...(_per_page && {
+      _per_page,
     }),
   };
   const getCharactersQueryKey = ["characters", argsObject];
@@ -19,7 +16,7 @@ function useGetCharacters({ format, page, search }: ApiArgs = {}) {
   return useQuery<CharactersApiResponse, Error>({
     queryKey: getCharactersQueryKey,
     queryFn: async () => {
-      const response = await listCharacters(argsObject);
+      const response = await getCharacters(argsObject);
 
       return response.json();
     },

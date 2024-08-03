@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { CharacterDataPruned } from "../../../api/types";
-import { stringToSlug } from "../../../helpers";
 import { Pages } from "../../../pages/types";
 
 function CharacterTable({
@@ -11,13 +10,13 @@ function CharacterTable({
   if (!characters) return null;
   return (
     <div className="flex flex-col space-y-2">
-      <ul className="list-disc">
-        {characters.map((character, id) => {
+      <ul className="list-disc list-inside">
+        {characters.map((character) => {
           return (
-            <li key={id}>
+            <li key={character.id}>
               <Link
                 data-testid="character-link"
-                to={`${Pages.CHARACTER}/${stringToSlug(character.name)}`}
+                to={`${Pages.CHARACTER}/${character.id}`}
               >
                 {character.name}
               </Link>

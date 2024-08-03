@@ -1,10 +1,10 @@
 export interface ApiArgs {
-  search?: string;
-  page?: number;
-  format?: "wookiee"; // todo - a wookie translator is needed to implement this functionality!
+  _page?: number;
+  _per_page?: number;
 }
 
 export interface CharacterData {
+  id: string;
   birth_year: string;
   eye_color: string;
   films: string[];
@@ -23,14 +23,10 @@ export interface CharacterData {
   vehicles: string[];
 }
 
-export interface CharactersApiResponse {
-  count: number;
-  next: string;
-  previous: number;
-  results: CharacterData[];
-}
+export type CharactersApiResponse = CharacterData[];
 
 export interface CharacterDataPruned {
+  id: CharacterData["id"];
   name: CharacterData["name"];
   hair_color: CharacterData["hair_color"];
   eye_color: CharacterData["eye_color"];
@@ -38,3 +34,5 @@ export interface CharacterDataPruned {
   homeworld: CharacterData["homeworld"];
   films: CharacterData["films"];
 }
+
+export type GetSingleCharacterArgs = { id: string } & ApiArgs;

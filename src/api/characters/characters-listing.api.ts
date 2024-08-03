@@ -1,10 +1,12 @@
 import { apiRequest } from "../helpers";
-import { ApiArgs } from "../types";
+import { ApiArgs, GetSingleCharacterArgs } from "../types";
 
-export const listCharacters = (args?: ApiArgs) => {
-  return apiRequest("people", {
-    ...args,
-  });
+export const getCharacters = (args?: ApiArgs) => {
+  return apiRequest("people", args);
 };
 
-// todo - add functionality to edit height or gender
+export const getSingleCharacter = ({ id, ...args }: GetSingleCharacterArgs) => {
+  return apiRequest(`people/${id}`, args);
+};
+
+// todo - add patch endpoint
