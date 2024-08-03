@@ -31,8 +31,10 @@ export interface CharacterDataPruned {
   hair_color: CharacterData["hair_color"];
   eye_color: CharacterData["eye_color"];
   gender: CharacterData["gender"];
-  homeworld: CharacterData["homeworld"];
   films: CharacterData["films"];
+  height: CharacterData["height"];
+  // todo - implement homeworld functionality
+  // homeworld: CharacterData["homeworld"];
 }
 
-export type GetSingleCharacterArgs = { id: string } & ApiArgs;
+export type GetApiArgs = { id: string } & ApiArgs;
