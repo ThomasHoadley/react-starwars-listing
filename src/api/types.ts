@@ -4,7 +4,7 @@ export interface ApiArgs {
   format?: "wookiee"; // todo - a wookie translator is needed to implement this functionality!
 }
 
-export interface CharactersApiResponse {
+export interface CharacterData {
   birth_year: string;
   eye_color: string;
   films: string[];
@@ -21,4 +21,20 @@ export interface CharactersApiResponse {
   starships: string[];
   url: string;
   vehicles: string[];
+}
+
+export interface CharactersApiResponse {
+  count: number;
+  next: string;
+  previous: number;
+  results: CharacterData[];
+}
+
+export interface CharacterDataPruned {
+  name: CharacterData["name"];
+  hair_color: CharacterData["hair_color"];
+  eye_color: CharacterData["eye_color"];
+  gender: CharacterData["gender"];
+  homeworld: CharacterData["homeworld"];
+  films: CharacterData["films"];
 }
