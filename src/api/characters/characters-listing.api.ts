@@ -6,3 +6,5 @@ export const listCharacters = (args?: ApiArgs) => {
     ...args,
   });
 };
+
+// todo - add functionality to edit height or gender

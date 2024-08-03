@@ -9,7 +9,8 @@
   },
   "scripts": {
     "site:dev": "vite",
-    "dev": "concurrently \"pnpm site:dev\" \"tsc -w \"",
+    "server:dev": "npx json-server db.json",
+    "dev": "concurrently \"pnpm server:dev\" \"pnpm site:dev\" \"tsc -w \"",
     "build": "tsc && vite build",
     "test": "vitest run --disableConsoleIntercept --config vite.config.ts",
     "test:watch": "vitest --config vite.config.ts",
@@ -37,6 +38,7 @@
     "autoprefixer": "^10.4.19",
     "concurrently": "^8.2.2",
     "jsdom": "24.0.0",
+    "json-server": "1.0.0-beta.1",
     "postcss": "^8.4.39",
     "tailwindcss": "^3.4.6",
     "typescript": "5.4.5",

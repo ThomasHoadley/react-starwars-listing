@@ -2,6 +2,8 @@
 
 Below is a list of my assumptions about the brief I made while working on this project.
 
+- The brief includes a requirement to mutate the data (height or gender). The swapi api does not provide this functionality. One option would be to store the data from it in react context and mutate that. I don't think this accurately reflects a real application so I have assumed that it is okay to mock an api with mutation functionality. As such, I have used json-server to do this. The data I have populated it with is the data provided by the endpoint `people/?page=1`, per the suggestion in the brief. 
+
 - I assume there is no issues using an open source component library as there was no mention to not use them. I made the choice to use shadcn because it has accessibility built in, and will also speed up the development time. If this was an issue, these components could be swapped out in future for custom built components. I have also used tailwind, as this is a fantastic library to imrpove developer experience for writing CSS alongside React.
 
 - I assume that the tester will have a compatible version of Node. I considered adding `use-node-version=20.15.1` to .npmrc to set it at the latest LTS version but I didn't want to introduce possible build issues for the testing dev at this stage. Node version management could be discussed in future.
