@@ -25,6 +25,23 @@ export interface CharacterData {
 
 export type CharactersApiResponse = CharacterData[];
 
+export type PlanetApiResponse = {
+  climate: string;
+  created: string;
+  diameter: string;
+  edited: string;
+  films: string[];
+  gravity: string;
+  name: string;
+  orbital_period: string;
+  population: string;
+  residents: string[];
+  rotation_period: string;
+  surface_water: string;
+  terrain: string;
+  url: string;
+};
+
 export interface CharacterDataPruned {
   id: CharacterData["id"];
   name: CharacterData["name"];
@@ -33,8 +50,7 @@ export interface CharacterDataPruned {
   gender: CharacterData["gender"];
   films: CharacterData["films"];
   height: CharacterData["height"];
-  // todo - implement homeworld functionality
-  // homeworld: CharacterData["homeworld"];
+  homeworldUrl: CharacterData["homeworld"];
 }
 
 export type GetApiArgs = { id: string } & ApiArgs;

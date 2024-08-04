@@ -20,6 +20,7 @@ export const pruneCharacterData = ({
   hair_color,
   name,
   height,
+  homeworld,
 }: CharacterData): CharacterDataPruned => {
   return {
     id,
@@ -29,5 +30,6 @@ export const pruneCharacterData = ({
     hair_color,
     name,
     height,
+    homeworldUrl: homeworld,
   };
 };

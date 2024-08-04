@@ -11,6 +11,7 @@ import {
   CardTitle,
 } from "../../../components/shadcn/card";
 import { Input } from "../../../components/shadcn/input";
+import useGetPlanet from "../../character-list/hooks/use-get-planet";
 import useUpdateCharacter from "../hooks/use-update-character";
 import Films from "./films";
 
@@ -22,6 +23,7 @@ function CharacterCard({
   name,
   height,
   id,
+  homeworldUrl,
 }: CharacterDataPruned) {
   const [heightInput, setHeightInput] = useState(height);
   const [genderInput, setGenderInput] = useState(gender);
@@ -32,6 +34,10 @@ function CharacterCard({
   const updateGender = () => {
     updateCharacter({ gender: genderInput, id });
   };
+
+  // note: if the user has visited the homepage these will be cached.
+  const { data: planetData } = useGetPlanet(homeworldUrl);
+
   // todo - add loading / error states to the mutations
   return (
     <Card className="max-w-full">
@@ -42,6 +48,9 @@ function CharacterCard({
       <CardContent className="space-y-2">
         <InformationLabel title="Eye color:" value={eye_color} />
         <InformationLabel title="Hair color:" value={hair_color} />
+        {planetData && (
+          <InformationLabel title="Home planet:" value={planetData.name} />
+        )}
         <P className="font-bold">Height (cm):</P>
         <div className="flex w-full max-w-sm items-center space-x-2">
           <Input

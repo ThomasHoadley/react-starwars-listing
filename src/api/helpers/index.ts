@@ -1,4 +1,3 @@
-import { baseApiUrl } from "../api.config";
 import { ApiArgs } from "../types";
 
 export const serializeQueryParams = (args: Record<string, any>) => {
@@ -10,7 +9,11 @@ export const serializeQueryParams = (args: Record<string, any>) => {
     .join("&");
 };
 
-export async function apiGetRequest(endpoint: string, args?: ApiArgs) {
+export async function apiGetRequest(
+  baseApiUrl: string,
+  endpoint: string,
+  args?: ApiArgs
+) {
   const urlParams = args && serializeQueryParams(args);
 
   const url = `${baseApiUrl}/${endpoint}?${urlParams && urlParams}`;
@@ -21,6 +24,7 @@ export async function apiGetRequest(endpoint: string, args?: ApiArgs) {
 }
 
 export async function apiPatchRequest(
+  baseApiUrl: string,
   endpoint: string,
   urlArgs: ApiArgs = {},
   body: Record<string, any>
