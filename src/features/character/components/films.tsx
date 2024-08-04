@@ -9,7 +9,7 @@ function Films({ films }: { films: CharacterDataPruned["films"] }) {
   // todo - add types for the film endpoint
   return (
     <>
-      <P>Films</P>
+      <P className="font-bold">Films</P>
       <ul className="list-disc list-inside">
         {filmsData.map((item) => {
           if (item && item.data && item.data.title) {

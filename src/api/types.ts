@@ -38,3 +38,8 @@ export interface CharacterDataPruned {
 }
 
 export type GetApiArgs = { id: string } & ApiArgs;
+
+export type UpdateCharacterBody = { id: CharacterData["id"] } & Partial<
+  Omit<CharacterDataPruned, "id">
+> &
+  ApiArgs;

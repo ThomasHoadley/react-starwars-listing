@@ -1,12 +1,17 @@
-import { apiRequest } from "../helpers";
-import { ApiArgs, GetApiArgs } from "../types";
+import { apiGetRequest, apiPatchRequest } from "../helpers";
+import { ApiArgs, GetApiArgs, UpdateCharacterBody } from "../types";
 
 export const getCharacters = (args?: ApiArgs) => {
-  return apiRequest("people", args);
+  return apiGetRequest("people", args);
 };
 
 export const getSingleCharacter = ({ id, ...args }: GetApiArgs) => {
-  return apiRequest(`people/${id}`, args);
+  return apiGetRequest(`people/${id}`, args);
 };
 
-// todo - add patch endpoint
+export const updateCharacter = (
+  body: UpdateCharacterBody,
+  urlArgs?: ApiArgs
+) => {
+  return apiPatchRequest(`people/${body.id}`, urlArgs, body);
+};

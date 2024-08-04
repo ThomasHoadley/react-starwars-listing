@@ -10,14 +10,29 @@ export const serializeQueryParams = (args: Record<string, any>) => {
     .join("&");
 };
 
-export async function apiRequest(endpoint: string, args: ApiArgs = {}) {
-  const urlParams = serializeQueryParams({
-    ...(args && args),
-  });
+export async function apiGetRequest(endpoint: string, args?: ApiArgs) {
+  const urlParams = args && serializeQueryParams(args);
 
   const url = `${baseApiUrl}/${endpoint}?${urlParams && urlParams}`;
 
   return fetch(url, {
     method: "GET",
+  });
+}
+
+export async function apiPatchRequest(
+  endpoint: string,
+  urlArgs: ApiArgs = {},
+  body: Record<string, any>
+) {
+  const urlParams = serializeQueryParams(urlArgs);
+  const url = `${baseApiUrl}/${endpoint}?${urlParams && urlParams}`;
+
+  return fetch(url, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
   });
 }
