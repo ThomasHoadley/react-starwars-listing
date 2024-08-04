@@ -17,7 +17,7 @@ function CharactersListing() {
   if (isCharacterApiError) return <P>There has been an error</P>;
   return (
     <>
-      <P className="font-bold mb-5">
+      <P className="mb-5 italic">
         Click the link below for more information on your favourite Star Wars
         Characters
       </P>

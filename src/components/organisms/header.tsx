@@ -9,7 +9,7 @@ function Header() {
       <PageContainer className="flex justify-between">
         <div className="flex flex-row justify-center items-center space-x-2">
           <Link to={Pages.HOME}>
-            <P className="font-bold text-2xl md:text-3xl">
+            <P className="font-bold text-2xl md:text-3xl text-brand-yellow">
               Star Wars Characters
             </P>
           </Link>
