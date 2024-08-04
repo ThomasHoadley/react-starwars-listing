@@ -7,6 +7,7 @@ function Films({ films }: { films: CharacterDataPruned["films"] }) {
   if (!filmsData) null;
 
   // todo - add types for the film endpoint
+  // todo - handle loading state for films
   return (
     <>
       <P className="font-bold">Films</P>
