@@ -1,5 +1,5 @@
 import { P } from "../../components/atoms/typography";
-import CharacterTable from "./components/character-table";
+import CharacterList from "./components/character-list";
 import { pruneCharacterData } from "./helpers";
 import useGetCharacters from "./hooks/use-get-characters";
 
@@ -15,15 +15,7 @@ function CharactersListing() {
 
   if (isCharacterApiLoading) return <P>Loading...</P>; // todo improve user messaging
   if (isCharacterApiError) return <P>There has been an error</P>;
-  return (
-    <>
-      <P className="mb-5 italic">
-        Click the link below for more information on your favourite Star Wars
-        Characters
-      </P>
-      <CharacterTable characters={characters} />
-    </>
-  );
+  return <CharacterList characters={characters} />;
 }
 
 export default CharactersListing;

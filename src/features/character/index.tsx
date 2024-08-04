@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { P } from "../../components/atoms/typography";
-import { pruneCharacterData } from "../character-listing/helpers";
+import { pruneCharacterData } from "../character-list/helpers";
 import CharacterCard from "./components/character-card";
 import useGetSingleCharacter from "./hooks/use-get-single-character";
 

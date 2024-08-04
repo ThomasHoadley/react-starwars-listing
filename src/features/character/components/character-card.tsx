@@ -32,6 +32,7 @@ function CharacterCard({
   const updateGender = () => {
     updateCharacter({ gender: genderInput, id });
   };
+  // todo - add loading / error states to the mutations
   return (
     <Card className="max-w-full">
       <CardHeader>

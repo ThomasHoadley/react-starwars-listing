@@ -4,7 +4,7 @@ import useGetFilms from "../hooks/use-get-films";
 
 function Films({ films }: { films: CharacterDataPruned["films"] }) {
   const filmsData = useGetFilms(films);
-  if (!filmsData) <></>;
+  if (!filmsData) null;
 
   // todo - add types for the film endpoint
   return (

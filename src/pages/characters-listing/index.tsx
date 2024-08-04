@@ -1,11 +1,17 @@
-import { H2 } from "../../components/atoms/typography";
+import { H2, P } from "../../components/atoms/typography";
 import { Card } from "../../components/shadcn/card";
-import CharactersListing from "../../features/character-listing";
+import CharactersListing from "../../features/character-list";
 
 function CharactersListingPage() {
   return (
     <div>
-      <H2 className="text-center">Character Listing</H2>
+      <div className="text-center space-y-2 mb-6">
+        <H2>Character Listing</H2>
+        <P className="italic">
+          Click the link below for more information on your favourite Star Wars
+          Characters
+        </P>
+      </div>
       <Card className="p-10">
         <CharactersListing />
       </Card>
